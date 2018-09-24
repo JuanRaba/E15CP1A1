@@ -1,8 +1,6 @@
 <% if logged? %>
-  usuario <%= current_user.name %>
-  <%= link_to "Salir", session_path(current_user), method: :delete %>
+  <li><%= link_to "Salir", session_path(current_user), method: :delete %></li>
 <% else %>
-  no usuario
-  <%= link_to "Entrar", new_session_path %>
-  <%= link_to "Crear usuario", users_sign_up_path %>
+  <li><%= link_to "Entrar", new_session_path %></li>
+  <li><%= link_to "Crear usuario", users_sign_up_path %></li>
 <%end%> 
