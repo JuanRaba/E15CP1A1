@@ -1,4 +1,6 @@
 <h1>Log in</h1>
+<%= render 'shared/loglinks' %>
+
 <%= form_with model: @user, url: sessions_path, local: true do |f| %>
 <div class="card col-md-6">
   <p>
@@ -12,10 +14,3 @@
   <%= f.submit "Entrar" %>
 </div>
 <% end %>
- <% if logged? %>
-  usuario <%= current_user.name %>
-  <%= link_to "Salir", session_path(current_user), method: :delete %>
-<% else %>
-  no usuario
-  <%= link_to "Entrar", new_session_path %>
-<%end%> 
