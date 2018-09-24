@@ -1,0 +1,15 @@
+<%= form_with model: @user, local: true do |f| %>
+<div class="card col-md-6">
+  <h3>Name</h3>
+  <%= f.text_area :name %>
+  <p>
+  <%= f.label :email %>
+  <%= f.text_area :email %>
+  </p>  
+  <p>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  </p>
+  <%= f.submit "Enviar" %>
+</div>
+<% end %> 
