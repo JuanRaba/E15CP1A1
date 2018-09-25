@@ -44,6 +44,10 @@ class HistoriesController < ApplicationController
   # PATCH/PUT /histories/1
   # PATCH/PUT /histories/1.json
   def update
+    if @history.user_id != helpers.current_user.id
+      redirect_to @history, alert: 'You are not allowed to modify this history.'
+      return
+    end
     respond_to do |format|
       if @history.update(history_params)
         format.html { redirect_to @history, notice: 'History was successfully updated.' }
