@@ -6,6 +6,9 @@ class HistoriesController < ApplicationController
   def index
     @histories = History.all
   end
+  def mine
+    @histories = helpers.current_user.histories
+  end
 
   # GET /histories/1
   # GET /histories/1.json
@@ -25,6 +28,7 @@ class HistoriesController < ApplicationController
   # POST /histories.json
   def create
     @history = History.new(history_params)
+    @history.user_id = helpers.current_user.id
 
     respond_to do |format|
       if @history.save

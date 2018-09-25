@@ -3,7 +3,7 @@ module UsersHelper
     session[:user_id].present? # present? returns boolean :/ ? true : false 
   end
   def current_user
-    User.find(session[:user_id]) 
+    logged? ? User.find(session[:user_id]) : nil
   end
   def current_user_name
     if logged?
